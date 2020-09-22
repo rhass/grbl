@@ -39,7 +39,7 @@
 
 // Serial baud rate
 // #define BAUD_RATE 230400
-#define BAUD_RATE 115200
+#define BAUD_RATE 250000
 
 // Define realtime command special characters. These characters are 'picked-off' directly from the
 // serial read data stream and are not passed to the grbl line execution parser. Select characters
@@ -340,7 +340,7 @@
 
 // Used by variable spindle output only. This forces the PWM output to a minimum duty cycle when enabled.
 // The PWM pin will still read 0V when the spindle is disabled. Most users will not need this option, but
-// it may be useful in certain scenarios. This minimum PWM settings coincides with the spindle rpm minimum
+// it may be useful in certain scenarios. This minimum SPINDLE_MAX_RPM settings coincides with the spindle rpm minimum
 // setting, like rpm max to max PWM. This is handy if you need a larger voltage difference between 0V disabled
 // and the voltage set by the minimum PWM for minimum rpm. This difference is 0.02V per PWM value. So, when
 // minimum PWM is at 1, only 0.02 volts separate enabled and disabled. At PWM 5, this would be 0.1V. Keep
@@ -638,10 +638,10 @@
 // run out of flash to fit on an Arduino 328p/Uno. Only X and Y axes are supported. Variable
 // spindle/laser mode IS supported, but only for one config option. Core XY, spindle direction
 // pin, and M7 mist coolant are disabled/not supported.
-// #define ENABLE_DUAL_AXIS	// Default disabled. Uncomment to enable.
+#define ENABLE_DUAL_AXIS	// Default disabled. Uncomment to enable.
 
 // Select the one axis to mirror another motor. Only X and Y axis is supported at this time.
-#define DUAL_AXIS_SELECT  X_AXIS  // Must be either X_AXIS or Y_AXIS
+#define DUAL_AXIS_SELECT  Y_AXIS  // Must be either X_AXIS or Y_AXIS
 
 // To prevent the homing cycle from racking the dual axis, when one limit triggers before the
 // other due to switch failure or noise, the homing cycle will automatically abort if the second 
